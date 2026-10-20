@@ -5,6 +5,7 @@ namespace Assesment_API_TokaReda.UnitOfWork
 {
     public interface IUnitOfWork
     {
+        // test pull
         IAuthRepo authRepo { get; }
         IGenericRepo<User> user {  get; }
         IGenericRepo<CandidateProfile> CandidateProfile { get; }
