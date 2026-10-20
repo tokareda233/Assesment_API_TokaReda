@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assesment_API_TokaReda.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261019075501_init")]
+    [Migration("20261020132844_init")]
     partial class init
     {
         /// <inheritdoc />

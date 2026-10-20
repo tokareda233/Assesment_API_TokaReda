@@ -26,8 +26,15 @@ namespace Assesment_API_TokaReda.Repos.Implmentation
 
         public async Task<decimal> GetThirdHighestSalary()
         {
-           var j=await _context.jobs.OrderByDescending(c=>c.Salary).Distinct().Skip(2).FirstOrDefaultAsync();
-            return j.Salary;
+           var j= await _context.jobs
+                 .Select(c => c.Salary)
+                 .Distinct()
+                 .OrderByDescending(s => s)
+                 .Skip(2)
+                 .FirstOrDefaultAsync();
+
+
+            return j;
         }
 
         public async Task<List<Job>> Search(string word)

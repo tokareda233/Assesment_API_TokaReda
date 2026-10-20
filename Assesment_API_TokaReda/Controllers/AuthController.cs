@@ -39,11 +39,11 @@ namespace Assesment_API_TokaReda.Controllers
             var r=await _unit.authRepo.Register(dto);
             if (!r) { return BadRequest("email already exeists"); }
 
-            //if (dto.Role != "Candidate"&&dto.Role!="Employer")
-            //{
-            //    return BadRequest("Roles out of the system scope");
+            if (dto.Role != "Candidate"&&dto.Role!="Employer")
+            {
+                return BadRequest("Roles out of the system scope");
                
-            //}
+            }
 
             var user = new User
             {

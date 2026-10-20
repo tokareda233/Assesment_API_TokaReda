@@ -42,11 +42,15 @@ namespace Assesment_API_TokaReda.Controllers
         }
 
         [HttpPatch("{id}/status")]
-        [Authorize(Roles = "Admin")]
+      //  [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Patch(int id, string status)
         {
             var j = await _unit.application.GetById(id);
             if (j == null) { return NotFound(); }
+            if(status.ToLower()!= "under review"&& status.ToLower() != "pending"&&status.ToLower() != "accepted"&& status.ToLower() != "refuesd")
+            {
+                return BadRequest("the status out of system scope");
+            }
 
             j.Status = status;
             _unit.application.Update(j);
